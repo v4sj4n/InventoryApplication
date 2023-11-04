@@ -1,0 +1,43 @@
+{{#if item}}
+<form method="POST" action="/item">
+    <label for="title">Title
+        <br>
+        <input type="text" name="title" id="title" required>
+    </label>
+    <br>
+
+    <label for="description">Description
+        <br>
+        <input type="text" name="description" id="description" required>
+    </label>
+    <br>
+
+    <label for="price">Price
+        <br>
+        <input type="text" name="price" id="price" required>
+    </label>
+    <br>
+    <label for="quantity">Quantity
+        <br>
+        <input type="text" name="quantity" id="quantity" required>
+    </label>
+    <br>
+    <br>
+    <label for="category">Category
+
+        <select name="category" id="category" required>
+            {{#each categories}}
+            <option value="{{this.url}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </label>
+    <br>
+    <br>
+    <button class="border rounded-lg py-2 px-4" type="submit">Submit</button>
+</form>
+
+{{else}}
+
+<p class="text-slate-100">No items found</p>
+
+{{/if}}

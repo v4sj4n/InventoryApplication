@@ -4,7 +4,6 @@ const Item = require('../models/item')
 
 const router = express.Router()
 
-/* GET home page. */
 router.get('/', async (req, res, next) => {
   const categories = await Category.find()
   const items = await Item.find().populate('category')
@@ -16,6 +15,11 @@ router.get('/', async (req, res, next) => {
     categories,
     items,
   })
+})
+
+router.get('/createItem', async (req, res, next) => {
+  const categories = await Category.find()
+  res.render('create', { item: true, categories })
 })
 
 module.exports = router
