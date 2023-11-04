@@ -1,0 +1,18 @@
+<h1 class="text-4xl font-bold  text-center text-slate-100">{{title}}</h1>
+<p class="text-center mt-2">{{this.category.description}}</p>
+<a href="/" class="ml-4 text-xl hover:underline mb-8 block"> Go back</a>
+
+{{#if items}}
+
+{{#each items}}
+<div class="border rounded-xl block p-4 my-3">
+    <h3 class="text-slate-100 hover:underline"><a href="/item/{{this.url}}">{{this.name}}</a></h3>
+    <p class="text-slate-100">{{this.description}}</p>
+</div>
+{{/each}}
+
+{{else}}
+
+<p class="text-slate-100">No items found</p>
+
+{{/if}}

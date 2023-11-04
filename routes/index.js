@@ -1,9 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const Category = require('../models/category')
+const Item = require('../models/item')
+
+const router = express.Router()
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', async (req, res, next) => {
+  const categories = await Category.find()
+  const items = await Item.find().populate('category')
+  console.log(categories)
+  console.log(items)
+  res.render('index', {
+    title: 'Inventory',
+    desc: 'Inventory Application',
+    categories,
+    items,
+  })
+})
 
-module.exports = router;
+module.exports = router

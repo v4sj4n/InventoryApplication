@@ -1,2 +1,14 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1 class="text-4xl font-bold  text-center text-slate-100">{{title}}</h1>
+
+<nav class="border rounded-lg px-9 py-6 flex justify-around my-8">
+    {{#each categories}}
+    <a href="/category/{{this.url}}" class="hover:underline text-2xl">{{this.name}}</a>
+    {{/each}}
+
+</nav>
+
+<h3 class="text-2xl font-bold">All of our items</h3>
+
+{{#each items}}
+<p class="text-slate-100">{{this.name}}</p>
+{{/each}}
